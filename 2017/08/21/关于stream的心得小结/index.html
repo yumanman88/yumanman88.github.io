@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>yumanman</title>
+  <title>关于stream的心得小结 | yumanman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="yumanman">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
+<meta name="keywords" content="前端,stream,pipe,nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于stream的心得小结">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/关于stream的心得小结/index.html">
 <meta property="og:site_name" content="yumanman">
+<meta property="og:description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
+<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p1.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/21/关于stream的心得小结/p2.png">
+<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p3.png">
+<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p4.png">
+<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p5.png">
+<meta property="og:updated_time" content="2017-08-31T02:18:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yumanman">
+<meta name="twitter:title" content="关于stream的心得小结">
+<meta name="twitter:description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
+<meta name="twitter:image" content="http://yoursite.com/img/关于stream的心得小结/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="yumanman" type="application/atom+xml">
   
@@ -149,16 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-关于stream的心得小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-关于stream的心得小结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/关于stream的心得小结/">关于stream的心得小结</a>
+    <h1 class="article-title" itemprop="name">
+      关于stream的心得小结
     </h1>
   
 
@@ -192,6 +201,37 @@
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -234,16 +274,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/关于stream的心得小结/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/21/关于stream的心得小结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/20/seaJs个人心得/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">seaJs个人心得</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -263,142 +362,12 @@
 
 
 
-
   
-    <article id="post-seaJs个人心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/seaJs个人心得/">seaJs个人心得</a>
-    </h1>
   
 
-        
-        <a href="/2017/08/20/seaJs个人心得/" class="archive-article-date">
-  	<time datetime="2017-08-20T12:48:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>导语</p>
-<p>在选择js的模块化工具时你会怎么选择呢，了解了背后的实现方式以及原理，才能助你找到最合适的。</p>
-</blockquote>
-<p>   之前只是会用到seaJs，也从各种博客上了解到seaJs的一些浅显的知识，但是对以下几点的细节还是不太清楚，这次开发中，debug看了些seaJs的源码。</p>
-<ul>
-<li>seaJs是如何加载js文件的，script还是ajax</li>
-<li>seaJs何时加载，何时运行，怎么运作</li>
-<li>seaJs的js文件运行几次</li>
-</ul>
-<p>seaJs是通过动态创建script标签来获取js文件的，并对每个js文件都创建一个Module对象，并把该js push到fetchingList中，并把该js从fetchingList中去除，放入fetchedList中</p>
-<p><img src="/img/seaJs个人心得/p1.png" alt="picture1"></p>
-<p><img src="/img/seaJs个人心得/p2.png" alt="picture2"></p>
-<p>获取js完毕后，会立即执行该js文件，由define入口，下面是截取Module.define的部分代码，seajs模块化的factory函数不会立即执行，但是要做的就是对factory函数里需要require的模块获取，并放入该模块的deps中</p>
-<p><img src="/img/seaJs个人心得/p3.png" alt="picture3"></p>
-<p>具体的做法是把factory函数toString后用如下正则表达式取出require的文件名</p>
-<p>​</p>
-<p><img src="/img/seaJs个人心得/p4.png" alt="picture4"><br><img src="/img/seaJs个人心得/p5.png" alt="picture5"></p>
-<p>​</p>
-<p>等到define函数执行完毕后，也就是js文件执行完毕（并不执行factory函数），执行onload函数，remove script标签，并循环遍历该模块的deps去获取该模块的依赖模块。</p>
-<p><img src="/img/seaJs个人心得/p6.png" alt="picture6"><br><img src="/img/seaJs个人心得/p7.png" alt="picture7"><br><img src="/img/seaJs个人心得/p8.png" alt="picture8"></p>
-<p>​    那factory函数什么时候执行呢？因为seajs的入口函数是seajs.use,当依赖模块加载完毕后，依次执行依赖模块后，才去执行seajs.use的callback</p>
-<p><img src="/img/seaJs个人心得/p9.png" alt="picture9"></p>
-<p>​</p>
-<p>​    在执行每个模块的factory函数时，遇到require依赖的模块，立即去执行依赖的模块，并把依赖模块的执行结果export存到该模块下。</p>
-<p>​    <img src="/img/seaJs个人心得/p10.png" alt="picture10"></p>
-<p><img src="/img/seaJs个人心得/p11.png" alt="picture11"></p>
-<ol>
-<li>看了Seajs源码总结：</li>
-</ol>
-<blockquote>
-<p>像jQuery一样，Seajs是个自执行函数，并且指向外暴露出seajs的变量，没有污染全局变量。过程中设置fetching和fetched数组记录已经获取或者正在获取的模块，避免重复加载。使用script标签进行js加载，加载并执行完成之后，执行onload事件，把script标签去除，避免刷新的重复加载，在执行完factory函数后会从缓存该模块中删除factory字段，减少缓存。</p>
-</blockquote>
-<ol>
-<li>requireJS模块化与seaJs对比</li>
-</ol>
-<p>在之前的实习中，使用过requireJs模块化工具。</p>
-<blockquote>
-<p>requireJs跟seaJs一样也是通过创建script标签来获取模块，但与seaJs不同的是加载完成一个模块后就立即执行factory函数（该模块的依赖函数也都获取并执行完毕，否则去获取该模块的依赖函数并执行）执行完factory函数后会遍历已经加载完但没执行的模块，有没有依赖此模块，如果依赖就立即执行。RequireJs对于每个Js模块也同样只执行一次，并保留执行结果。</p>
-<p>seaJs会在需要的时候才执行依赖模块，但是requireJs会在依赖模块加载完就立即执行，而依赖模块的加载速度无法控制，因此依赖模块的执行顺序无法预知，这点需要注意。在体积上看，seaJs压缩后6k左右，适合移动web，requireJs略大。</p>
-</blockquote>
-<p>自己的粗略总结，错误之处欢迎提出呀！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">seaJs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/-总结/" class="article-tag-list-link color4">-总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/seaJs个人心得/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -421,8 +390,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

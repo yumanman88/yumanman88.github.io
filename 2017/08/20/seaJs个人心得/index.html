@@ -6,14 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>yumanman</title>
+  <title>seaJs个人心得 | yumanman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="yumanman">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="导语 在选择js的模块化工具时你会怎么选择呢，了解了背后的实现方式以及原理，才能助你找到最合适的。     之前只是会用到seaJs，也从各种博客上了解到seaJs的一些浅显的知识，但是对以下几点的细节还是不太清楚，这次开发中，debug看了些seaJs的源码。  seaJs是如何加载js文件的，script还是ajax seaJs何时加载，何时运行，怎么运作 seaJs的js文件运行几次  s">
+<meta name="keywords" content="js,seaJs,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="seaJs个人心得">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/seaJs个人心得/index.html">
 <meta property="og:site_name" content="yumanman">
+<meta property="og:description" content="导语 在选择js的模块化工具时你会怎么选择呢，了解了背后的实现方式以及原理，才能助你找到最合适的。     之前只是会用到seaJs，也从各种博客上了解到seaJs的一些浅显的知识，但是对以下几点的细节还是不太清楚，这次开发中，debug看了些seaJs的源码。  seaJs是如何加载js文件的，script还是ajax seaJs何时加载，何时运行，怎么运作 seaJs的js文件运行几次  s">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p1.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p2.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p3.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p4.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p5.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p6.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p7.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p8.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p9.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p10.png">
+<meta property="og:image" content="http://yoursite.com/img/seaJs个人心得/p11.png">
+<meta property="og:updated_time" content="2017-08-31T02:19:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yumanman">
+<meta name="twitter:title" content="seaJs个人心得">
+<meta name="twitter:description" content="导语 在选择js的模块化工具时你会怎么选择呢，了解了背后的实现方式以及原理，才能助你找到最合适的。     之前只是会用到seaJs，也从各种博客上了解到seaJs的一些浅显的知识，但是对以下几点的细节还是不太清楚，这次开发中，debug看了些seaJs的源码。  seaJs是如何加载js文件的，script还是ajax seaJs何时加载，何时运行，怎么运作 seaJs的js文件运行几次  s">
+<meta name="twitter:image" content="http://yoursite.com/img/seaJs个人心得/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="yumanman" type="application/atom+xml">
   
@@ -149,130 +166,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-关于stream的心得小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-seaJs个人心得" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/关于stream的心得小结/">关于stream的心得小结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/21/关于stream的心得小结/" class="archive-article-date">
-  	<time datetime="2017-08-21T13:08:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等</p>
-<p>​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据</p>
-<p>​    对于writable stream：和readable一样存在buffer缓存中，当内容到达highWaterMark，调用write时通过return false 停止写入数据。</p>
-<p>​    对于pipe方法，在gulp与grunt的对比中的核心不同点在于gulp使用了pipe方法，如</p>
-<p><img src="/img/关于stream的心得小结/p1.png" alt="picture1"></p>
-<p>​    使用流的方式使得上一个任务的输出作为下个任务的输入，不产生中间文件，减少了IO的数量，而grunt则产生中间临时文件。</p>
-<p>​    pipe就是通过管道将readable stream输出到writable stream那pipe是如何实现的呢，如何控制读写的速度一样呢，如果读的速度很大，而写的很慢，在buffer中超出highWaterMark会不会丢失数据呢？</p>
-<p>​    首先readable流通过read来读取数据到buffer，每次读取read会触发data事件</p>
-<p><img src="/2017/08/21/关于stream的心得小结/p2.png" alt="picture2"></p>
-<p>​    而pipe会监听readable的data事件（代码中source是readable stream，dest是writable stream），如果监听到，则暂停readable的读，把readable的模式改为暂停模式，再把内容写入writable流中，当把缓冲池中的内容写出去完，则开启readable stream的流动模式。<br><img src="/img/关于stream的心得小结/p3.png" alt="picture3"><br><img src="/img/关于stream的心得小结/p4.png" alt="picture4"><br><img src="/img/关于stream的心得小结/p5.png" alt="picture5"></p>
-<p>​    因此不会出现写入数据速度过慢引起大量数据滞留。</p>
-<p>​    net中的stream：node 中的net其实就是TCP服务，net中每个连接socket其实就是一个封装了的可读可写stream，可以通过pipe管道操作，但这样会产生多个小数据包浪费网络资源，TCP中有Nagle算法，把这些数据缓存起来达到一定的数量或者时间才发出。</p>
-<p>​    http中的stream：http基于net模块，http中的request是readable stream，response是writable stream，在实现http服务的时候，同样可以使用pipe的形式输出response，这样做的好处是如果想返回用户一个txt文件中的内容，如果使用readfile把整个文件读到内存里，当请求量很大的时候很容易使内存负荷很大，因此像pipe这种边写边读的方式，还是挺有效的，而且写起来简单易懂。</p>
-<p> Reference：</p>
-<ul>
-<li><a href="https://mp.weixin.qq.com/s/pF39NeLKuNF30zOye0lHmA" target="_blank" rel="external">https://mp.weixin.qq.com/s/pF39NeLKuNF30zOye0lHmA</a></li>
-<li><a href="http://www.cnblogs.com/zapple/p/5759614.html" target="_blank" rel="external">http://www.cnblogs.com/zapple/p/5759614.html</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">stream</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">pipe</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/-总结/" class="article-tag-list-link color4">-总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/关于stream的心得小结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-seaJs个人心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/seaJs个人心得/">seaJs个人心得</a>
+    <h1 class="article-title" itemprop="name">
+      seaJs个人心得
     </h1>
   
 
@@ -331,6 +232,37 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -368,16 +300,79 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/seaJs个人心得/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/20/seaJs个人心得/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/08/21/关于stream的心得小结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于stream的心得小结
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -397,8 +392,12 @@
 
 
 
+  
+  
+  
 
   
+
   
 
 
@@ -421,8 +420,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
