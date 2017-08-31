@@ -9,7 +9,7 @@
   <title>关于stream的心得小结 | yumanman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
-<meta name="keywords" content="stream,pipe,nodejs,前端">
+<meta name="keywords" content="前端,stream,pipe,nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于stream的心得小结">
 <meta property="og:url" content="http://yumanman.online/2017/08/21/关于stream的心得小结/index.html">
@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p3.png">
 <meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p4.png">
 <meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p5.png">
-<meta property="og:updated_time" content="2017-08-31T02:18:39.000Z">
+<meta property="og:updated_time" content="2017-08-31T13:07:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于stream的心得小结">
 <meta name="twitter:description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
@@ -187,7 +187,7 @@
         <p>​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等</p>
 <p>​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据</p>
 <p>​    对于writable stream：和readable一样存在buffer缓存中，当内容到达highWaterMark，调用write时通过return false 停止写入数据。</p>
-<p>​    对于pipe方法，在gulp与grunt的对比中的核心不同点在于gulp使用了pipe方法，如</p>
+<p>​    对于pipe方法，在gulp与grunt的对比中的核心不同点在于gulp使用了pipe方法，如<br><a id="more"></a></p>
 <p><img src="/img/关于stream的心得小结/p1.png" alt="picture1"></p>
 <p>​    使用流的方式使得上一个任务的输出作为下个任务的输入，不产生中间文件，减少了IO的数量，而grunt则产生中间临时文件。</p>
 <p>​    pipe就是通过管道将readable stream输出到writable stream那pipe是如何实现的呢，如何控制读写的速度一样呢，如果读的速度很大，而写的很慢，在buffer中超出highWaterMark会不会丢失数据呢？</p>
@@ -246,6 +246,10 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">stream</a>
         		</li>
       		 
@@ -255,10 +259,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -465,6 +465,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">stream</a>
               </li>
              
@@ -474,18 +486,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
               </li>
             
             <div class="clearfix"></div>

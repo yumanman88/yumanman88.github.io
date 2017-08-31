@@ -9,7 +9,7 @@
   <title>seaJs个人心得 | yumanman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="导语 在选择js的模块化工具时你会怎么选择呢，了解了背后的实现方式以及原理，才能助你找到最合适的。     之前只是会用到seaJs，也从各种博客上了解到seaJs的一些浅显的知识，但是对以下几点的细节还是不太清楚，这次开发中，debug看了些seaJs的源码。  seaJs是如何加载js文件的，script还是ajax seaJs何时加载，何时运行，怎么运作 seaJs的js文件运行几次  s">
-<meta name="keywords" content="前端,js,seaJs">
+<meta name="keywords" content="js,seaJs,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="seaJs个人心得">
 <meta property="og:url" content="http://yumanman.online/2017/08/20/seaJs个人心得/index.html">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yumanman.online/img/seaJs个人心得/p9.png">
 <meta property="og:image" content="http://yumanman.online/img/seaJs个人心得/p10.png">
 <meta property="og:image" content="http://yumanman.online/img/seaJs个人心得/p11.png">
-<meta property="og:updated_time" content="2017-08-31T02:19:42.000Z">
+<meta property="og:updated_time" content="2017-08-31T13:07:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="seaJs个人心得">
 <meta name="twitter:description" content="导语 在选择js的模块化工具时你会怎么选择呢，了解了背后的实现方式以及原理，才能助你找到最合适的。     之前只是会用到seaJs，也从各种博客上了解到seaJs的一些浅显的知识，但是对以下几点的细节还是不太清楚，这次开发中，debug看了些seaJs的源码。  seaJs是如何加载js文件的，script还是ajax seaJs何时加载，何时运行，怎么运作 seaJs的js文件运行几次  s">
@@ -200,8 +200,7 @@
 <li>seaJs何时加载，何时运行，怎么运作</li>
 <li>seaJs的js文件运行几次</li>
 </ul>
-<p>seaJs是通过动态创建script标签来获取js文件的，并对每个js文件都创建一个Module对象，并把该js push到fetchingList中，并把该js从fetchingList中去除，放入fetchedList中</p>
-<p><img src="/img/seaJs个人心得/p1.png" alt="picture1"></p>
+<p>seaJs是通过动态创建script标签来获取js文件的，并对每个js文件都创建一个Module对象，并把该js push到fetchingList中，并把该js从fetchingList中去除，放入fetchedList中<br><a id="more"></a><br><img src="/img/seaJs个人心得/p1.png" alt="picture1"></p>
 <p><img src="/img/seaJs个人心得/p2.png" alt="picture2"></p>
 <p>获取js完毕后，会立即执行该js文件，由define入口，下面是截取Module.define的部分代码，seajs模块化的factory函数不会立即执行，但是要做的就是对factory函数里需要require的模块获取，并放入该模块的deps中</p>
 <p><img src="/img/seaJs个人心得/p3.png" alt="picture3"></p>
@@ -276,15 +275,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">seaJs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -495,6 +494,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">stream</a>
               </li>
              
@@ -504,18 +515,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
               </li>
             
             <div class="clearfix"></div>

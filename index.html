@@ -178,22 +178,10 @@
         <p>​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等</p>
 <p>​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据</p>
 <p>​    对于writable stream：和readable一样存在buffer缓存中，当内容到达highWaterMark，调用write时通过return false 停止写入数据。</p>
-<p>​    对于pipe方法，在gulp与grunt的对比中的核心不同点在于gulp使用了pipe方法，如</p>
-<p><img src="/img/关于stream的心得小结/p1.png" alt="picture1"></p>
-<p>​    使用流的方式使得上一个任务的输出作为下个任务的输入，不产生中间文件，减少了IO的数量，而grunt则产生中间临时文件。</p>
-<p>​    pipe就是通过管道将readable stream输出到writable stream那pipe是如何实现的呢，如何控制读写的速度一样呢，如果读的速度很大，而写的很慢，在buffer中超出highWaterMark会不会丢失数据呢？</p>
-<p>​    首先readable流通过read来读取数据到buffer，每次读取read会触发data事件</p>
-<p><img src="/2017/08/21/关于stream的心得小结/p2.png" alt="picture2"></p>
-<p>​    而pipe会监听readable的data事件（代码中source是readable stream，dest是writable stream），如果监听到，则暂停readable的读，把readable的模式改为暂停模式，再把内容写入writable流中，当把缓冲池中的内容写出去完，则开启readable stream的流动模式。<br><img src="/img/关于stream的心得小结/p3.png" alt="picture3"><br><img src="/img/关于stream的心得小结/p4.png" alt="picture4"><br><img src="/img/关于stream的心得小结/p5.png" alt="picture5"></p>
-<p>​    因此不会出现写入数据速度过慢引起大量数据滞留。</p>
-<p>​    net中的stream：node 中的net其实就是TCP服务，net中每个连接socket其实就是一个封装了的可读可写stream，可以通过pipe管道操作，但这样会产生多个小数据包浪费网络资源，TCP中有Nagle算法，把这些数据缓存起来达到一定的数量或者时间才发出。</p>
-<p>​    http中的stream：http基于net模块，http中的request是readable stream，response是writable stream，在实现http服务的时候，同样可以使用pipe的形式输出response，这样做的好处是如果想返回用户一个txt文件中的内容，如果使用readfile把整个文件读到内存里，当请求量很大的时候很容易使内存负荷很大，因此像pipe这种边写边读的方式，还是挺有效的，而且写起来简单易懂。</p>
-<p> Reference：</p>
-<ul>
-<li><a href="https://mp.weixin.qq.com/s/pF39NeLKuNF30zOye0lHmA" target="_blank" rel="external">https://mp.weixin.qq.com/s/pF39NeLKuNF30zOye0lHmA</a></li>
-<li><a href="http://www.cnblogs.com/zapple/p/5759614.html" target="_blank" rel="external">http://www.cnblogs.com/zapple/p/5759614.html</a></li>
-</ul>
-
+<p>​    对于pipe方法，在gulp与grunt的对比中的核心不同点在于gulp使用了pipe方法，如<br></p>
+        
+          <a class="article-more-a" href="/2017/08/21/关于stream的心得小结/#more">more >></a>
+        
       
 
       
@@ -206,6 +194,10 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">stream</a>
         		</li>
       		 
@@ -215,10 +207,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -299,39 +287,10 @@
 <li>seaJs何时加载，何时运行，怎么运作</li>
 <li>seaJs的js文件运行几次</li>
 </ul>
-<p>seaJs是通过动态创建script标签来获取js文件的，并对每个js文件都创建一个Module对象，并把该js push到fetchingList中，并把该js从fetchingList中去除，放入fetchedList中</p>
-<p><img src="/img/seaJs个人心得/p1.png" alt="picture1"></p>
-<p><img src="/img/seaJs个人心得/p2.png" alt="picture2"></p>
-<p>获取js完毕后，会立即执行该js文件，由define入口，下面是截取Module.define的部分代码，seajs模块化的factory函数不会立即执行，但是要做的就是对factory函数里需要require的模块获取，并放入该模块的deps中</p>
-<p><img src="/img/seaJs个人心得/p3.png" alt="picture3"></p>
-<p>具体的做法是把factory函数toString后用如下正则表达式取出require的文件名</p>
-<p>​</p>
-<p><img src="/img/seaJs个人心得/p4.png" alt="picture4"><br><img src="/img/seaJs个人心得/p5.png" alt="picture5"></p>
-<p>​</p>
-<p>等到define函数执行完毕后，也就是js文件执行完毕（并不执行factory函数），执行onload函数，remove script标签，并循环遍历该模块的deps去获取该模块的依赖模块。</p>
-<p><img src="/img/seaJs个人心得/p6.png" alt="picture6"><br><img src="/img/seaJs个人心得/p7.png" alt="picture7"><br><img src="/img/seaJs个人心得/p8.png" alt="picture8"></p>
-<p>​    那factory函数什么时候执行呢？因为seajs的入口函数是seajs.use,当依赖模块加载完毕后，依次执行依赖模块后，才去执行seajs.use的callback</p>
-<p><img src="/img/seaJs个人心得/p9.png" alt="picture9"></p>
-<p>​</p>
-<p>​    在执行每个模块的factory函数时，遇到require依赖的模块，立即去执行依赖的模块，并把依赖模块的执行结果export存到该模块下。</p>
-<p>​    <img src="/img/seaJs个人心得/p10.png" alt="picture10"></p>
-<p><img src="/img/seaJs个人心得/p11.png" alt="picture11"></p>
-<ol>
-<li>看了Seajs源码总结：</li>
-</ol>
-<blockquote>
-<p>像jQuery一样，Seajs是个自执行函数，并且指向外暴露出seajs的变量，没有污染全局变量。过程中设置fetching和fetched数组记录已经获取或者正在获取的模块，避免重复加载。使用script标签进行js加载，加载并执行完成之后，执行onload事件，把script标签去除，避免刷新的重复加载，在执行完factory函数后会从缓存该模块中删除factory字段，减少缓存。</p>
-</blockquote>
-<ol>
-<li>requireJS模块化与seaJs对比</li>
-</ol>
-<p>在之前的实习中，使用过requireJs模块化工具。</p>
-<blockquote>
-<p>requireJs跟seaJs一样也是通过创建script标签来获取模块，但与seaJs不同的是加载完成一个模块后就立即执行factory函数（该模块的依赖函数也都获取并执行完毕，否则去获取该模块的依赖函数并执行）执行完factory函数后会遍历已经加载完但没执行的模块，有没有依赖此模块，如果依赖就立即执行。RequireJs对于每个Js模块也同样只执行一次，并保留执行结果。</p>
-<p>seaJs会在需要的时候才执行依赖模块，但是requireJs会在依赖模块加载完就立即执行，而依赖模块的加载速度无法控制，因此依赖模块的执行顺序无法预知，这点需要注意。在体积上看，seaJs压缩后6k左右，适合移动web，requireJs略大。</p>
-</blockquote>
-<p>自己的粗略总结，错误之处欢迎提出呀！</p>
-
+<p>seaJs是通过动态创建script标签来获取js文件的，并对每个js文件都创建一个Module对象，并把该js push到fetchingList中，并把该js从fetchingList中去除，放入fetchedList中<br></p>
+        
+          <a class="article-more-a" href="/2017/08/20/seaJs个人心得/#more">more >></a>
+        
       
 
       
@@ -344,15 +303,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">seaJs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -496,6 +455,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">stream</a>
               </li>
              
@@ -505,18 +476,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
               </li>
             
             <div class="clearfix"></div>
