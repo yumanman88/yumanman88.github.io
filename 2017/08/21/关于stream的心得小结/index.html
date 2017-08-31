@@ -5,31 +5,31 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://yumanman.online">
   <title>关于stream的心得小结 | yumanman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
-<meta name="keywords" content="前端,stream,pipe,nodejs">
+<meta name="keywords" content="stream,pipe,nodejs,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于stream的心得小结">
-<meta property="og:url" content="http://yoursite.com/2017/08/21/关于stream的心得小结/index.html">
+<meta property="og:url" content="http://yumanman.online/2017/08/21/关于stream的心得小结/index.html">
 <meta property="og:site_name" content="yumanman">
 <meta property="og:description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
-<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p1.png">
-<meta property="og:image" content="http://yoursite.com/2017/08/21/关于stream的心得小结/p2.png">
-<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p3.png">
-<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p4.png">
-<meta property="og:image" content="http://yoursite.com/img/关于stream的心得小结/p5.png">
+<meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p1.png">
+<meta property="og:image" content="http://yumanman.online/2017/08/21/关于stream的心得小结/p2.png">
+<meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p3.png">
+<meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p4.png">
+<meta property="og:image" content="http://yumanman.online/img/关于stream的心得小结/p5.png">
 <meta property="og:updated_time" content="2017-08-31T02:18:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于stream的心得小结">
 <meta name="twitter:description" content="​    最近也在看一些nodejs的知识，发现很多模块的底层都是基于stream的，包括net模块（socket流）、gulp（pipe）、http（request）等 ​    对于readable stream：用户调用read()命令前都存在buffer里，当在buffer数据量到达highWaterMark，会通过return false停止读入数据 ​    对于writable st">
-<meta name="twitter:image" content="http://yoursite.com/img/关于stream的心得小结/p1.png">
+<meta name="twitter:image" content="http://yumanman.online/img/关于stream的心得小结/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="yumanman" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/avatar1.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.266c1c.css">
   <style type="text/css">
@@ -95,6 +95,8 @@
 		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
+					<a class="mail" target="_blank" href="mailto:litten225@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -135,6 +137,8 @@
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:litten225@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -242,10 +246,6 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">stream</a>
         		</li>
       		 
@@ -255,6 +255,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -321,7 +325,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/21/关于stream的心得小结/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yumanman.online/2017/08/21/关于stream的心得小结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -461,18 +465,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">stream</a>
               </li>
              
@@ -482,6 +474,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">seaJs</a>
               </li>
             
             <div class="clearfix"></div>
@@ -533,27 +537,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://yumanman.online/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
         </ul>
